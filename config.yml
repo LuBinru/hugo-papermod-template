@@ -1,5 +1,5 @@
-baseURL: "https://awesome-actions-template.github.io/hugo-papermod-template"
-title: PaperMod
+baseURL: "https://LuBinru.github.io/hugo-papermod-template"
+title: LBR的编程记事簿
 paginate: 5
 theme: hugo-PaperMod
 
@@ -73,7 +73,7 @@ params:
         url: tags
 
   homeInfoParams:
-    Title: "PaperMod"
+    Title: "LuBinru'Blog"
     Content: >
       Welcome to demo of hugo's theme PaperMod.
 
