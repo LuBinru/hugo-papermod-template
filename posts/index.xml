@@ -10,7 +10,16 @@
       <link>https://LuBinru.github.io/hugo-papermod-template/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://LuBinru.github.io/hugo-papermod-template/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://LuBinru.github.io/hugo-papermod-template/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MyBatisPlus分页不生效后的探索</title>
+      <link>https://LuBinru.github.io/hugo-papermod-template/posts/mybatisplus%E5%88%86%E9%A1%B5%E4%B8%8D%E7%94%9F%E6%95%88%E5%90%8E%E7%9A%84%E6%8E%A2%E7%B4%A2/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://LuBinru.github.io/hugo-papermod-template/posts/mybatisplus%E5%88%86%E9%A1%B5%E4%B8%8D%E7%94%9F%E6%95%88%E5%90%8E%E7%9A%84%E6%8E%A2%E7%B4%A2/</guid>
+      <description>研究一下META-INF/spring.factories</description>
+    </item>
+    
     <item>
       <title>Hello World</title>
       <link>https://LuBinru.github.io/hugo-papermod-template/posts/hello-world/</link>
@@ -18,25 +27,6 @@
       
       <guid>https://LuBinru.github.io/hugo-papermod-template/posts/hello-world/</guid>
       <description>Guide to Hugo-PaperMod-Template</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://LuBinru.github.io/hugo-papermod-template/posts/mybatisplus%E5%88%86%E9%A1%B5%E4%B8%8D%E7%94%9F%E6%95%88%E5%90%8E%E7%9A%84%E6%8E%A2%E7%B4%A2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LuBinru.github.io/hugo-papermod-template/posts/mybatisplus%E5%88%86%E9%A1%B5%E4%B8%8D%E7%94%9F%E6%95%88%E5%90%8E%E7%9A%84%E6%8E%A2%E7%B4%A2/</guid>
-      <description>MyBatisPlus分页不生效后的探索 今天我在使用MyBatisPlus的IPage接口进行分页查询时，遇到了一个问题：分页并没有生效，结果直接返回了整个数据集。我查阅了官方文档，但没有找到我这几行代码的问题所在。于是我开始搜索关于&amp;quot;MyBatisPlus分页不生效&amp;quot;的原因和解决办法，但大多数结果都在讨论&amp;quot;未配置分页拦截器&amp;quot;这个问题。
-经过测试，我发现分页拦截器根本没有启动。
-在浏览了几页的搜索结果后，我没有找到解决方案。
-实际上，问题出在META-INF目录的位置上。META-INF目录需要放置在resources根目录下，否则无法被正确扫描到。META-INF没有被扫描，在这之前没碰到过的一个小问题。
-META-INF目录用于存放元数据信息，例如包和扩展的配置数据。
-与分页拦截器是否启动直接相关的是spring.factories文件。
-spring.factories的作用是自动加载Spring扩展的实现类。它需要以properties格式（键值对）进行配置。这个机制提供了一种将外部包中的类注入到Spring容器中的方式。换句话说，如果Spring要加载根目录以外的Bean，例如Maven依赖中的Bean，就需要使用spring.factories。
-这是一种解耦的扩展机制。
-基本原理是在spring-core包中的SpringFactoriesLoader类中，它实现了对META-INF/spring.factories文件的检索，并根据配置信息实例化这些功能类，最后将它们注册到Spring容器中。
-相关代码如下：
-public final class SpringFactoriesLoader { //文件路径  public static final String FACTORIES_RESOURCE_LOCATION = &amp;#34;META-INF/spring.factories&amp;#34;; ... /** * 根据给定的类型返回一个包含这些实现类对象的列表 */ public static &amp;lt;T&amp;gt; List&amp;lt;T&amp;gt; loadFactories(Class&amp;lt;T&amp;gt; factoryType, @Nullable ClassLoader classLoader) { Assert.notNull(factoryType, &amp;#34;&amp;#39;factoryType&amp;#39; must not be null&amp;#34;); ClassLoader classLoaderToUse = classLoader; if (classLoader == null) { classLoaderToUse = SpringFactoriesLoader.class.getClassLoader(); } List&amp;lt;String&amp;gt; factoryImplementationNames = loadFactoryNames(factoryType, classLoaderToUse); if (logger.isTraceEnabled()) { logger.trace(&amp;#34;Loaded [&amp;#34; + factoryType.</description>
     </item>
     
   </channel>
