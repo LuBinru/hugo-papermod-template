@@ -1,3 +1,14 @@
+---
+author: "BeiYu"
+title: "MyBatisPlus分页不生效后的探索"
+date: "2023-07-28"
+description: "研究一下META-INF/spring.factories"
+tags: ["Spring"]
+ShowToc: false
+math: true
+ShowBreadCrumbs: false
+---
+
 # MyBatisPlus分页不生效后的探索
 
 今天我在使用MyBatisPlus的IPage接口进行分页查询时，遇到了一个问题：分页并没有生效，结果直接返回了整个数据集。我查阅了官方文档，但没有找到我这几行代码的问题所在。于是我开始搜索关于"MyBatisPlus分页不生效"的原因和解决办法，但大多数结果都在讨论"未配置分页拦截器"这个问题。
